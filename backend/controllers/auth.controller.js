@@ -66,7 +66,7 @@ export const login = async (req, res) => {
   try {
     const {email, password} = req.body;
     const user = await User.findOne({email});
-    
+
     if(user && (await user.comparePassword(password))){
       const {accessToken, refreshToken} = generateTokens(user._id);
 
@@ -78,7 +78,7 @@ export const login = async (req, res) => {
         message: "User logged in successfully",
       })
     }else{
-      res.status(401).json({message: "Invalid email or password" })
+      res.status(400).json({message: "Invalid email or password" })
     }
 
    } catch (error) {
