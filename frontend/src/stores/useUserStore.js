@@ -60,4 +60,4 @@ export const useUserStore = create((set, get) => ({
       set({ checkingAuth: false, user: null });
     }
   },
-}));
+})); 
